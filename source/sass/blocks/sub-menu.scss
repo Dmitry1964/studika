@@ -1,0 +1,15 @@
+.sub-menu {
+  list-style: none;
+  padding: 16px 10px 10px;
+  margin: 0;
+  width: auto;
+}
+
+.sub-menu li {
+  padding: 10px;
+  border-radius: 10px;
+
+  &:hover {
+    background-color: $color-whitw-smoke;
+  }
+}

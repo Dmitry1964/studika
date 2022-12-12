@@ -1,0 +1,43 @@
+@font-face {
+  font-style: normal;
+  font-weight: 400;
+  font-family: "Open Sans";
+
+  font-display: swap;
+  src:
+    url("../fonts/open-sans-regular.woff2") format("woff2"),
+    url("../fonts/open-sans-regular.woff") format("woff");
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 500;
+  font-family: "Open Sans";
+
+  font-display: swap;
+  src:
+    url("../fonts/open-sans-500.woff2") format("woff2"),
+    url("../fonts/open-sans-500.woff") format("woff");
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 400;
+  font-family: "Formular";
+
+  font-display: swap;
+  src:
+    url("../fonts/Formular.woff2") format("woff2"),
+    url("../fonts/Formular.woff") format("woff");
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 500;
+  font-family: "Formular";
+
+  font-display: swap;
+  src:
+    url("../fonts/Formular-Medium.woff2") format("woff2"),
+    url("../fonts/Formular-Medium.woff") format("woff");
+}

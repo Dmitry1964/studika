@@ -1,0 +1,12 @@
+.content-wrapper {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  column-gap: 32px;
+  padding-top: 32px;
+  position: relative;
+
+  @include vp-1023 {
+    grid-template-columns: 1fr;
+    padding: 16px;
+  }
+}

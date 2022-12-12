@@ -1,0 +1,120 @@
+.modal {
+  width: 385px;
+  margin: 16px 0 0;
+  padding: 24px 0 0;
+  background-color: $color-default-white;
+  border-radius: 10px;
+  position: absolute;
+  top: 20px;
+  left: 0;
+  z-index: 100;
+  display: none;
+
+  &--visually {
+    display: block;
+  }
+}
+
+.modal__city-search {
+  padding: 0 16px;
+  position: relative;
+}
+
+.modal__city-search input {
+  @include font(14px, 22px, 400, $color-gray);
+  padding: 0 40px 0 25px;
+  height: 48px;
+  border: 2px solid $color-gainsboro;
+  border-radius: 48px;
+  width: 100%;
+}
+
+.modal__button-clear {
+  width: 20px;
+  height: 20px;
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  top: calc(50% - 10px);
+  left: 85%;
+  color: $color-dark-gray;
+  transform: rotate(45deg);
+  cursor: pointer;
+  opacity: 0;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 28px;
+    height: 2px;
+    top: calc(50% - 1px);
+    left: 0;
+    background-color: $color-dark-gray;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 28px;
+    height: 2px;
+    top: calc(50% - 1px);
+    left: 0;
+    background-color: $color-dark-gray;
+    transform: rotate(90deg);
+  }
+}
+
+.modal__selected {
+  padding: 12px 16px;
+}
+
+.modal__select {
+  @include font(14px, 22px, 400, $color-default-white);
+  background-color: $color-cobalt;
+  display: inline-block;
+  margin: 4px 8px 4px 0;
+  padding: 9px 35px 9px 17px;
+  border-radius: 49px;
+  position: relative;
+}
+
+.modal__select-button {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  right: 8px;
+  top: 12px;
+  border: none;
+  background-color: transparent;
+  background-image: url("../img/icon-close.svg");
+  cursor: pointer;
+}
+
+.modal__button {
+  font-family: $ff-second;
+  @include font(12px, 16px, 500, $color-default-white);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background-color: $color-cobalt;
+  width: 100%;
+  margin: 10px 0 0;
+  padding: 16px 0;
+  border-radius: 0 0 10px 10px;
+  cursor: pointer;
+}
+
+.modal__list {
+  list-style: none;
+  margin: 0;
+  height: 200px;
+  overflow: scroll;
+  padding-top: 20px;
+  border-top: 1px solid $color-dark-gray;
+}
+
+.modal__item {
+  padding: 11px 16px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}

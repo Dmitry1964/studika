@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Описание проекта">
+  <title>ProjectName</title>
+  <link rel="stylesheet" href="css/style.min.css">
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript"></script>
+</head>
+
+<body>
+  <svg class="visually-hidden">
+    <symbol viewBox="0 0 88 32" id="logo">
+      <path
+        d="M7.851 19.4978H10.3601C10.1874 20.6703 9.66941 21.6114 8.80607 22.3213C7.95352 23.0313 6.86355 23.3862 5.53617 23.3862C3.7987 23.3862 2.43894 22.843 1.45689 21.7566C0.485629 20.6595 0 19.2128 0 17.4165C0 15.6202 0.491025 14.1788 1.47307 13.0924C2.45512 11.9953 3.80949 11.4467 5.53617 11.4467C6.7988 11.4467 7.851 11.7748 8.69276 12.4309C9.53451 13.0763 10.0525 13.9368 10.2468 15.0124H7.7215C7.45171 14.0659 6.72326 13.5926 5.53617 13.5926C4.54333 13.5926 3.78251 13.9529 3.25371 14.6736C2.73571 15.3835 2.47671 16.2978 2.47671 17.4165C2.47671 18.5351 2.73571 19.4548 3.25371 20.1755C3.78251 20.8854 4.54333 21.2403 5.53617 21.2403C6.1513 21.2403 6.65851 21.0897 7.05781 20.7886C7.46789 20.4766 7.73229 20.0464 7.851 19.4978Z"
+        fill="#222222" />
+      <path d="M22.012 11.6565V13.7701H18.4184V23.1765H16.0064V13.7701H12.4127V11.6565H22.012Z" fill="#222222" />
+      <path
+        d="M28.6894 16.8195H29.1427L31.587 11.6565H34.0313L28.4952 23.1765H26.0832L27.7343 19.7237L23.4608 11.6565H25.9861L28.6894 16.8195Z"
+        fill="#222222" />
+      <path
+        d="M45.1637 21.0306H46.8149V26H44.4677V23.1765H36.8757V26H34.5285V21.0306H35.7263C36.6436 19.4064 37.1023 17.126 37.1023 14.1896V11.6565H45.1637V21.0306ZM42.8165 21.0306V13.8024H39.3362V14.8188C39.3362 17.5079 38.9477 19.5785 38.1707 21.0306H42.8165Z"
+        fill="#222222" />
+      <path
+        d="M49.5559 11.6565H51.806V19.6914H52.2268L56.3871 11.6565H59.6408V23.1765H57.3745V14.964H56.9536L52.6963 23.1765H49.5559V11.6565Z"
+        fill="#222222" />
+      <path
+        d="M64.3366 23.1765V11.6565H66.7485V16.158H69.4843L71.6048 11.6565H74.0977L71.5077 17.2551L74.2434 23.1765H71.7505L69.5004 18.3361H66.7485V23.1765H64.3366Z"
+        fill="#222222" />
+      <path
+        d="M85.5557 23.1765L84.6168 20.0625H80.2137L79.2749 23.1765H76.8953L80.5699 11.6565H84.3092L88 23.1765H85.5557ZM82.0429 13.9637L80.8289 17.965H83.9693L82.7552 13.9637H82.0429Z"
+        fill="#222222" />
+      <path d="M38.1583 2H35.629L32.5938 8.05042H35.1231L38.1583 2Z" fill="#222222" />
+    </symbol>
+
+    <symbol viewBox="0 0 19 18" id="favorite-icon">
+      <path
+        d="M9.5 16.0125L8.4125 15.0225C4.55 11.52 2 9.21 2 6.375C2 4.065 3.815 2.25 6.125 2.25C7.43 2.25 8.6825 2.8575 9.5 3.8175C10.3175 2.8575 11.57 2.25 12.875 2.25C15.185 2.25 17 4.065 17 6.375C17 9.21 14.45 11.52 10.5875 15.03L9.5 16.0125Z"
+        fill="#A7A7A7" />
+    </symbol>
+
+    <symbol viewBox="0 0 32 32" id="icon-ok">
+      <rect width="32" height="32" rx="16" fill="#E7F2FF" />
+      <path
+        d="M12.795 19.8749L8.62502 15.7049L7.20502 17.1149L12.795 22.7049L24.795 10.7049L23.385 9.29492L12.795 19.8749Z"
+        fill="#6A9AD2" />
+    </symbol>
+
+    <symbol viewBox="0 0 32 32" id="icon-non">
+      <rect width="32" height="32" rx="16" fill="#FF0000" fill-opacity="0.12" />
+      <path
+        d="M23 10.41L21.59 9L16 14.59L10.41 9L9 10.41L14.59 16L9 21.59L10.41 23L16 17.41L21.59 23L23 21.59L17.41 16L23 10.41Z"
+        fill="#FF0000" />
+    </symbol>
+
+    <symbol viewBox="0 0 32 32" id="icon-one">
+      <circle cx="16" cy="16" r="16" fill="#F1F1F1" />
+      <path d="M18 11H20.9194L16.9194 16H24V14H21.0806L25.0806 9H18V11Z" fill="#222222" />
+      <path d="M9 13V15H13L7 23H16V21H11L17 13H9Z" fill="#222222" />
+    </symbol>
+
+    <symbol viewBox="0 0 32 32" id="icon-two">
+      <circle cx="16" cy="16" r="16" fill="#F1F1F1" />
+      <path fill-rule="evenodd" clip-rule="evenodd"
+        d="M16 10.2361L21.5279 13H10.4721L16 10.2361ZM16 8L8 12V13V15H10H22H24V13V12L16 8ZM20 16H22V21H20V16ZM23 22V24H9L9 22L23 22ZM17 16V21H15V16H17ZM12 16H10V21H12V16Z"
+        fill="#222222" />
+    </symbol>
+
+    <symbol viewBox="0 0 32 32" id="icon-three" fill="none">
+      <circle cx="16" cy="16" r="16" fill="#F1F1F1" />
+      <path d="M19 10H10L14 16L10 21H19L23 16L19 10Z" stroke="#222222" stroke-width="2" />
+    </symbol>
+
+    <symbol viewBox="0 0 16 16" id="icon-close-white">
+      <line y1="-0.75" x2="19.2559" y2="-0.75" transform="matrix(0.686589 -0.727046 0.686589 0.727046 1.77911 16)"
+        stroke="#ffffff" stroke-width="1.5" />
+      <line y1="-0.75" x2="19.2559" y2="-0.75" transform="matrix(0.686589 0.727046 -0.686589 0.727046 1 2)"
+        stroke="#ffffff" stroke-width="1.5" />
+    </symbol>
+
+  </svg>
+  <div class="wrapper">
+    <header class="header">
+
+      <nav class="user-nav container">
+        <button class="user-nav__btn"></button>
+        <a class="user-nav__link" href="#">
+          <svg width="88" height="32">
+            <use xlink:href="#logo"></use>
+          </svg>
+        </a>
+        <div class="user-nav__regions">
+          <button class="user-nav__button" type="button"></button>
+          <div class="user-nav__location">
+            <span>Москва</span>
+          </div>
+          <div></div>
+        </div>
+        <div class="user-nav__search">
+          <input type="text" placeholder="Учебное заведение, специальность или профессия">
+          <button class="user-nav__search-clear" type="button"></button>
+        </div>
+        <div class="user-nav__profile">
+          <svg width="18" height="18">
+            <use xlink:href="#favorite-icon"></use>
+          </svg>
+          <span>1</span>
+          <div class="user-nav__info">
+            <p>Екатерина</p>
+            <img class="user-nav__image" src="img/avatar.jpg" srcset="img/avatar@2x.jpg 2x" alt="Аватар пользователя">
+          </div>
+        </div>
+      </nav>
+      <nav class="navigation container">
+        <ul class="navigation__list">
+          <li class="navigation__item navigation__item--carrent">
+            <a class="navigation__link" href="#">Вузы</a>
+          </li>
+          <li class="navigation__item">
+            <a class="navigation__link" href="#">Колледжи</a>
+          </li>
+          <li class="navigation__item">
+            <a class="navigation__link" href="#">Техникумы</a>
+          </li>
+          <li class="navigation__item">
+            <a class="navigation__link" href="#">Училища</a>
+          </li>
+          <li class="navigation__item">
+            <a class="navigation__link" href="#">Специальности</a>
+            <div class="navigation__sub-menu">
+              <ul class="sub-menu">
+                <li>
+                  <a href="#">Высшее</a>
+                </li>
+                <li>
+                  <a href="#">Среднее</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="navigation__item">
+            <a class="navigation__link" href="#">Профессии</a>
+          </li>
+          <li class="navigation__item">
+            <a class="navigation__link" href="#">Отзывы</a>
+          </li>
+          <li class="navigation__item">
+            <a class="navigation__link" href="#">Учебным заведениям</a>
+          </li>
+          <li class="navigation__item">
+            <a class="navigation__link" href="#">Тест на профориентацию</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="container"></div>
+    </header>
+    <main class="container">
+      <section class="promo">
+        <h2 class="visually-hidden">Страница университета им.Баумана</h2>
+        <nav class="promo__crumbs">
+          <ul class="promo__crumbs-list">
+            <li class="promo__crumbs-item">
+              <a href="#">Москва</a>
+            </li>
+            <li class="promo__crumbs-item">
+              <a href="#">Высшее образование</a>
+            </li>
+            <li class="promo__crumbs-item">
+              <a href="#">Вузы</a>
+            </li>
+            <li class="promo__crumbs-item">
+              <span>МГТУ им. Н.Э. Баумана</span>
+            </li>
+          </ul>
+          <div class="promo__back">
+            <a href="#">Назад</a>
+          </div>
+        </nav>
+        <div class="promo__banner">
+          <img class="promo__img promo__img--mobile" src="img/img-bauman-mobile.jpg"
+            srcset="img/img-bauman-mobile@2x.jpg 2x" alt="Фотография здания университеиа им. Баумана">
+          <img class="promo__img promo__img--desk" src="img/img-bauman.jpg" srcset="img/img-bauman@2x.jpg 2x"
+            alt="Фотография здания университеиа им. Баумана">
+        </div>
+        <div class="promo__info">
+          <h2 class="promo__title">Московский государственный технический
+            университет имени Н.Э. Бáумана</h2>
+          <div class="promo__selected">
+            <button class="promo__select-btn" type="button"><span>В Избранное</span></button>
+            <button class="promo__like-btn" type="button"></button>
+            <button class="promo__share-btn" type="button"></button>
+          </div>
+        </div>
+        <ul class="promo__info-list">
+          <li class="promo__info-item"><b>2.4</b>(75 отзывов)</li>
+          <li class="promo__info-item">Москва, ул. Новочеремушкинская, д. 69</li>
+          <li class="promo__info-item">Приемная комиссия:<a href="tel:+74991812133"> +7 (499) 181 21 33</a></li>
+        </ul>
+        <div class="promo__links">
+          <a class="promo__link promo__link-feedback" href="#">оставить отзыв</a>
+          <a class="promo__link promo__link-chance" href="#">проверить шансы поступить</a>
+        </div>
+
+        <p class="promo__desc"><span>Обновлено 11.11.2011</span><a href="#">Сообщить об ошибке</a></p>
+
+      </section>
+      <div class="content-wrapper">
+        <aside class="block-info">
+          <h2 class="visually-hidden">Таблица показателей вуза</h2>
+          <ul class="info-list">
+            <li class="info-list__item">
+              <p>Основная информация</p>
+              <span>100</span>
+            </li>
+            <li class="info-list__item">
+              <p>Специальности</p>
+              <span>100</span>
+            </li>
+            <li class="info-list__item">
+              <p>Об университете</p>
+              <span>100</span>
+            </li>
+            <li class="info-list__item">
+              <p>Контакты</p>
+              <span>100</span>
+            </li>
+            <li class="info-list__item">
+              <p>Отзывы</p>
+              <span>100</span>
+            </li>
+            <li class="info-list__item">
+              <p>Преподаватели</p>
+              <span>100</span>
+            </li>
+            <li class="info-list__item">
+              <p>Профессии</p>
+              <span>100</span>
+            </li>
+            <li class="info-list__item">
+              <p>Новости</p>
+              <span>100</span>
+            </li>
+            <li class="info-list__item">
+              <p>Задать вопрос</p>
+              <span>100</span>
+            </li>
+            <li class="info-list__item">
+              <p>Часто задаваемые вопросы</p>
+              <span>100</span>
+            </li>
+          </ul>
+        </aside>
+
+        <div class="page-info">
+          <section class="info">
+            <h2 class="visually-hidden">Информация о количестве мест, проходной бал и прочкк</h2>
+            <h2 class="info__title">Основная информация</h2>
+            <div class="info__wrapper">
+              <div class="info__seats">
+                <dl>
+                  <dt>4 532</dt>
+                  <dd>платных мест</dd>
+                  <dt>1 702</dt>
+                  <dd>бюджетных мест</dd>
+                </dl>
+              </div>
+              <div class="info__rating">
+                <dl>
+                  <dt>1 место</dt>
+                  <dd>в Санкт-Петербурге</dd>
+                  <dt>12 место</dt>
+                  <dd>в РФ</dd>
+                </dl>
+              </div>
+              <div class="info__prop">
+                <ul class="info__prop-list">
+                  <li class="info__prop-item">
+                    <p>Государственный</p>
+                    <svg width="32" height="32">
+                      <use xlink:href="#icon-ok"></use>
+                    </svg>
+                  </li>
+                  <li class="info__prop-item">
+                    <p>Общежитие</p>
+                    <svg width="32" height="32">
+                      <use xlink:href="#icon-non"></use>
+                    </svg>
+                  </li>
+                  <li class="info__prop-item">
+                    <p>Военная кафедра</p>
+                    <svg width="32" height="32">
+                      <use xlink:href="#icon-ok"></use>
+                    </svg>
+                  </li>
+                </ul>
+              </div>
+              <div class="info__other">
+                <p>Вы представитель УЗ?</p>
+                <button class="info__other-btn" type="button">получить доступ</button>
+              </div>
+            </div>
+            <div class="info__chart">
+              <h3 class="info__chart-title">Проходной балл</h3>
+              <!-- <img src="img/img-chart.png" width="904" height="307" alt="График"> -->
+              <div id="chart"></div>
+            </div>
+          </section>
+          <section class="special">
+            <h2 class="visually-hidden">Каталог направлений и специальностей вуза</h2>
+            <h2 class="special__title">Специальности</h2>
+            <p class="special__sub-title">Специальности МГТУ им. Н. Э. Баумана</p>
+            <p class="special__prim">432 специальности<span class="special__hidden"> МГТУ им. Н. Э. Баумана</span></p>
+            <div class="special__sort">
+              <p>Сортировать:</p>
+              <ul class="special__sort-list">
+                <li class="special__sort-item special__sort-item--current">
+                  <a class="special__sort-link special__sort-link--current" href="#">по оплате в год</a>
+                </li>
+                <li class="special__sort-item">
+                  <a class="special__sort-link" href="#">по отзывам</a>
+                </li>
+                <li class="special__sort-item">
+                  <a class="special__sort-link" href="#">по проходному баллу</a>
+                </li>
+                <li class="special__sort-item">
+                  <a class="special__sort-link" href="#">по количeству бюджетных мест</a>
+                </li>
+              </ul>
+            </div>
+            <div class="special__catalog aaaaaa swiper">
+              <div class="special__wrapper swiper-wrapper ">
+                <article class="special__card swiper-slide">
+                  <div class="special__card-wrapper">
+                    <img class="special__card-img" src="img/mobil-photo-1.jpg" srcset="img/mobil-photo-1@2x.jpg 2x"
+                      data-type="mobil" alt="Фото аудитории">
+                    <img class="special__card-img" src="img/deck-photo-1.jpg" srcset="img/deck-photo-1@2x.jpg 2x"
+                      data-type="desk" alt="Фото аудитории">
+                    <div class="special__card-promo">
+                      <p class="special__card-subtitle">бакалавриат · 01.03.00 </p>
+                      <h3 class="special__card-title">Техническая эксплуатация авиационных электросистем
+                        и пилотажных комплексов </h3>
+                      <ul class="special__card-list">
+                        <li>
+                          <a class="special__card-link" href="#">Очно</a>
+                        </li>
+                        <li>
+                          <a class="special__card-link" href="#">Заочно</a>
+                        </li>
+                        <li>
+                          <a class="special__card-link" href="#">Очно-заочно</a>
+                        </li>
+                        <li>
+                          <a class="special__card-link" href="#">Дистанционно</a>
+                        </li>
+                      </ul>
+                      <p class="special__card-desc">
+                        Программное обеспечение вычислительных систем · Математическое и программное обеспечение защиты
+                        информации · Экономика · Организация педагогическо...
+                      </p>
+                      <a class="special__card-linkother" href="#">Все 43 профиля</a>
+                    </div>
+                    <div class="special__card-other">
+                      <div class="special__card-icons">
+                        <svg width="32" height="32">
+                          <use xlink:href="#icon-one"></use>
+                        </svg>
+                        <svg width="32" height="32">
+                          <use xlink:href="#icon-two"></use>
+                        </svg>
+                        <svg width="32" height="32">
+                          <use xlink:href="#icon-three"></use>
+                        </svg>
+                      </div>
+                      <dl>
+                        <dt>Бюджетных <span>мест</span></dt>
+                        <dd>260</dd>
+                        <dt>Проходной <span>балл</span></dt>
+                        <dd>от 152</dd>
+                        <dt>Оплата в год</dt>
+                        <dd>от 90 000 ₽</dd>
+                      </dl>
+                    </div>
+                  </div>
+                </article>
+                <article class="special__card swiper-slide">
+                  <div class="special__card-wrapper">
+                    <img class="special__card-img" src="img/mobile-photo-2.jpg" srcset="img/mobile-photo-2@2x.jpg 2x"
+                      data-type="mobil" alt="Фото аудитории">
+                    <img class="special__card-img" src="img/deck-photo-1.jpg" srcset="img/deck-photo-1@2x.jpg 2x"
+                      data-type="desk" alt="Фото аудитории">
+                    <div class="special__card-promo">
+                      <p class="special__card-subtitle">бакалавриат · 01.03.00 </p>
+                      <h3 class="special__card-title">Фундаментальна и прикладная химия</h3>
+                      <ul class="special__card-list">
+                        <li>
+                          <a class="special__card-link" href="#">Очно</a>
+                        </li>
+                        <li>
+                          <a class="special__card-link hidden" href="#">Заочно</a>
+                        </li>
+                        <li>
+                          <a class="special__card-link hidden" href="#">Очно-заочно</a>
+                        </li>
+                        <li>
+                          <a class="special__card-link hidden" href="#">Дистанционно</a>
+                        </li>
+                      </ul>
+                      <p class="special__card-desc">
+                        Программное обеспечение вычислительных систем · Математическое и программное обеспечение защиты
+                        информации · Экономика · Организация педагогическо...
+                      </p>
+                      <a class="special__card-linkother" href="#">Все 43 профиля</a>
+                    </div>
+                    <div class="special__card-other">
+                      <div class="special__card-icons">
+                        <svg width="32" height="32">
+                          <use xlink:href="#icon-one"></use>
+                        </svg>
+                        <svg width="32" height="32">
+                          <use xlink:href="#icon-two"></use>
+                        </svg>
+                        <svg width="32" height="32">
+                          <use xlink:href="#icon-three"></use>
+                        </svg>
+                      </div>
+                      <dl>
+                        <dt>Бюджетных <span>мест</span></dt>
+                        <dd>260</dd>
+                        <dt>Проходной <span>балл</span></dt>
+                        <dd>от 152</dd>
+                        <dt>Оплата в год</dt>
+                        <dd>от 90 000 ₽</dd>
+                      </dl>
+                    </div>
+                  </div>
+                </article>
+                <article class="special__card swiper-slide">
+                  <div class="special__card-wrapper">
+                    <img class="special__card-img" src="img/mobile-photo-3.jpg" srcset="img/mobile-photo-3@2x.jpg 2x"
+                      data-type="mobil" alt="Фото аудитории">
+                    <img class="special__card-img" src="img/deck-photo-1.jpg" srcset="img/deck-photo-1@2x.jpg 2x"
+                      data-type="desk" alt="Фото аудитории">
+                    <div class="special__card-promo">
+                      <p class="special__card-subtitle">бакалавриат · 01.03.00 </p>
+                      <h3 class="special__card-title">Фундаментальна и прикладная химия</h3>
+                      <ul class="special__card-list">
+                        <li>
+                          <a class="special__card-link" href="#">Очно</a>
+                        </li>
+                        <li>
+                          <a class="special__card-link hidden" href="#">Заочно</a>
+                        </li>
+                        <li>
+                          <a class="special__card-link hidden" href="#">Очно-заочно</a>
+                        </li>
+                        <li>
+                          <a class="special__card-link hidden" href="#">Дистанционно</a>
+                        </li>
+                      </ul>
+                      <p class="special__card-desc">
+                        Программное обеспечение вычислительных систем · Математическое и программное обеспечение защиты
+                        информации · Экономика · Организация педагогическо...
+                      </p>
+                      <a class="special__card-linkother" href="#">Все 43 профиля</a>
+                    </div>
+                    <div class="special__card-other">
+                      <div class="special__card-icons">
+                        <svg width="32" height="32">
+                          <use xlink:href="#icon-one"></use>
+                        </svg>
+                        <svg width="32" height="32">
+                          <use xlink:href="#icon-two"></use>
+                        </svg>
+                        <svg width="32" height="32">
+                          <use xlink:href="#icon-three"></use>
+                        </svg>
+                      </div>
+                      <dl>
+                        <dt>Бюджетных <span>мест</span></dt>
+                        <dd>260</dd>
+                        <dt>Проходной <span>балл</span></dt>
+                        <dd>от 152</dd>
+                        <dt>Оплата в год</dt>
+                        <dd>от 90 000 ₽</dd>
+                      </dl>
+                    </div>
+                  </div>
+                </article>
+                <article class="special__card swiper-slide">
+                  <div class="special__card-wrapper">
+                    <img class="special__card-img" src="img/mobile-photo-4.jpg" srcset="img/mobile-photo-4@2x.jpg 2x"
+                      data-type="mobil" alt="Фото аудитории">
+                    <img class="special__card-img" src="img/deck-photo-1.jpg" srcset="img/deck-photo-1@2x.jpg 2x"
+                      data-type="desk" alt="Фото аудитории">
+                    <div class="special__card-promo">
+                      <p class="special__card-subtitle">бакалавриат · 01.03.00 </p>
+                      <h3 class="special__card-title">Прикладная математика и информатика</h3>
+                      <ul class="special__card-list">
+                        <li>
+                          <a class="special__card-link" href="#">Очно</a>
+                        </li>
+                        <li>
+                          <a class="special__card-link" href="#">Заочно</a>
+                        </li>
+                        <li>
+                          <a class="special__card-link" href="#">Очно-заочно</a>
+                        </li>
+                        <li>
+                          <a class="special__card-link" href="#">Дистанционно</a>
+                        </li>
+                      </ul>
+                      <p class="special__card-desc">
+                        Программное обеспечение вычислительных систем · Математическое и программное обеспечение защиты
+                        информации · Экономика · Организация педагогическо...
+                      </p>
+                      <a class="special__card-linkother" href="#">Все 43 профиля</a>
+                    </div>
+                    <div class="special__card-other">
+                      <div class="special__card-icons">
+                        <svg width="32" height="32">
+                          <use xlink:href="#icon-one"></use>
+                        </svg>
+                        <svg width="32" height="32">
+                          <use xlink:href="#icon-two"></use>
+                        </svg>
+                        <svg width="32" height="32">
+                          <use xlink:href="#icon-three"></use>
+                        </svg>
+                      </div>
+                      <dl>
+                        <dt>Бюджетных <span>мест</span></dt>
+                        <dd>260</dd>
+                        <dt>Проходной <span>балл</span></dt>
+                        <dd>от 152</dd>
+                        <dt>Оплата в год</dt>
+                        <dd>от 90 000 ₽</dd>
+                      </dl>
+                    </div>
+                  </div>
+                </article>
+                <article class="special__card swiper-slide">
+                  <div class="special__card-wrapper">
+                    <img class="special__card-img" src="img/mobile-photo-5.jpg" srcset="img/mobile-photo-5@2x.jpg 2x"
+                      data-type="mobil" alt="Фото аудитории">
+                    <img class="special__card-img" src="img/deck-photo-1.jpg" srcset="img/deck-photo-1@2x.jpg 2x"
+                      data-type="desk" alt="Фото аудитории">
+                    <div class="special__card-promo">
+                      <p class="special__card-subtitle">бакалавриат · 01.03.00 </p>
+                      <h3 class="special__card-title">Геология</h3>
+                      <ul class="special__card-list">
+                        <li>
+                          <a class="special__card-link" href="#">Очно</a>
+                        </li>
+                        <li>
+                          <a class="special__card-link" href="#">Заочно</a>
+                        </li>
+                        <li>
+                          <a class="special__card-link" href="#">Очно-заочно</a>
+                        </li>
+                        <li>
+                          <a class="special__card-link" href="#">Дистанционно</a>
+                        </li>
+                      </ul>
+                      <p class="special__card-desc">
+                        Программное обеспечение вычислительных систем · Математическое и программное обеспечение защиты
+                        информации · Экономика · Организация педагогическо...
+                      </p>
+                      <a class="special__card-linkother" href="#">Все 43 профиля</a>
+                    </div>
+                    <div class="special__card-other">
+                      <div class="special__card-icons">
+                        <svg width="32" height="32">
+                          <use xlink:href="#icon-one"></use>
+                        </svg>
+                        <svg width="32" height="32">
+                          <use xlink:href="#icon-two"></use>
+                        </svg>
+                        <svg width="32" height="32">
+                          <use xlink:href="#icon-three"></use>
+                        </svg>
+                      </div>
+                      <dl>
+                        <dt>Бюджетных <span>мест</span></dt>
+                        <dd>260</dd>
+                        <dt>Проходной <span>балл</span></dt>
+                        <dd>от 152</dd>
+                        <dt>Оплата в год</dt>
+                        <dd>от 90 000 ₽</dd>
+                      </dl>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <!-- <div class="swiper-pagination"></div> -->
+            </div>
+            <a class="special__link-all" href="#">Показать все специальности</a>
+          </section>
+          <section class="about">
+            <h2 class="visually-hidden">Информация Об университете</h2>
+            <div class="about__title">
+              <h2>Об университете</h2>
+              <span>Об МГТУ им. Н. Э. Баумана</span>
+            </div>
+            <div class="about__images">
+              <img class="about__img" src="img/img-about-1.jpg" stcset="img/img-about-1@2x.jpg 2x" data-about="desk"
+                alt="Здание  университета">
+              <img class="about__img" src="img/img-about-2.jpg" srcset="img/img-about-2@2x.jpg 2x" data-about="desk"
+                alt="Здание университета">
+              <img class="about__img" src="img/img-about-3.jpg" srcset="img/img-about-3@2x.jpg 2x" data-about="desk"
+                alt="Здание университета">
+              <img class="about__img" src="img/img-about-4.jpg" srcset="img/img-about-4@2x.jpg 2x" data-about="desk"
+                alt="Здание университета">
+              <img class="about__img" src="img/img-about-5.jpg" srcset="img/img-about-5@2x.jpg 2x" data-about="desk"
+                alt="Здание университета">
+            </div>
+            <div class="about__text">
+              <p>
+                Московский университет ― это один из самых старейших университетов России, был основан в 1755 году.
+                Университет известен во мире и занимает лидирующие места в рейтингах вузов самых различных направлений.
+              </p>
+              <p>
+                В 2008 году он получил награду «Европейское качество» «за стремление достичь высокого качества
+                образовательных услуг в соответствии с международными стандартами». МГТУ им. Н. Э. Баумана в течение
+                более
+                чем 14 лет является головным вузом Ассоциации технических университетов, в состав которой входят более
+                130
+                российских университетов.
+              </p>
+              <button class="about__button" type="button">Развернуть</button>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container"></div>
+    </footer>
+  </div>
+
+  <template id="popup">
+    <article class="popup">
+      <div class="container">
+        <div class="popup__wrapper">
+          <div class="popup__info">
+            <h3 class="popup__title"></h3>
+            <div class="popup__contacts">
+              <p class="popup__address"></p>
+              <p class="popup__phone"></p>
+            </div>
+          </div>
+          <div class="popup__button">
+            <svg width="19" height="18">
+              <use xlink:href="#favorite-icon"></use>
+            </svg>
+            <button type="button">В Избранное</button>
+          </div>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <!-- <template> -->
+  <template id="modal">
+    <article class="modal">
+      <div class="modal__city-search">
+        <input type="text" placeholder="Регион, город, населенный пункт">
+        <button class="modal__button-clear"></button>
+      </div>
+      <div class="modal__selected">
+        <div class="modal__select">
+          <span>Москва</span>
+          <button class="modal__select-button"></button>
+        </div>
+      </div>
+      <div class="modal__container">
+        <div class="modal__all-city">
+          <ul class="modal__list">
+          </ul>
+        </div>
+      </div>
+      <svg width="16" height="16">
+        <use xlink:href="#icon-close-white"></use>
+      </svg>
+      <button class="modal__button" type="button">Сохранить</button>
+    </article>
+  </template>
+  <!-- </template> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+  <script src="js/vendor.min.js"></script>
+  <script src="js/main.min.js"></script>
+</body>
+
+</html>

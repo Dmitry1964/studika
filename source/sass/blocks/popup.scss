@@ -1,0 +1,80 @@
+.popup {
+  padding: 11px 0;
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  background-color: $color-default-white;
+  z-index: 100;
+  width: 100%;
+
+  &--visually {
+    display: block;
+  }
+}
+
+.popup__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 12px;
+  pointer-events: none;
+}
+
+.popup__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.popup__title {
+  @include font(18px, 24px, 500, $color-nero);
+  font-family: $ff-second;
+  margin: 0 0 6px;
+}
+
+.popup__contacts {
+  display: flex;
+}
+
+.popup__address,
+.popup__phone {
+  margin: 0;
+
+  @include font(16px, 30px, 400, $color-gray);
+}
+
+.popup__phone {
+  padding: 0 0 0 22px;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: $color-gray;
+    top: calc(50% - 3px);
+    left: 11px;
+  }
+}
+
+.popup__button {
+  position: relative;
+  pointer-events: none;
+}
+
+.popup__button button {
+  @include font(14px, 22px, 400, $color-nero);
+  padding: 8px 16px 8px 40px;
+  border: 1px solid $color-gainsboro;
+  border-radius: 49px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.popup__button svg {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+}
